@@ -50,16 +50,16 @@ jobs:
                 ls -al
                 sh -c 'cat << EOF >>  Dockerfile
                 FROM nginx:latest
-                # COPY ./default.conf /etc/nginx/conf.d/default.conf
+                COPY ./default.conf /etc/nginx/conf.d/default.conf
                 COPY build /usr/share/nginx/html
                 EXPOSE 80
                 CMD ["nginx", "-g", "daemon off;"]
                 EOF'
-                #docker buildx build --file ./Dockerfile --build-context project=. .
+                docker buildx build --file ./Dockerfile .
                 # docker buildx build --push -t treta361/test:vtest0.1 .
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-       context: .
-       file: ./Dockerfile
-       push: false
+    # - name: Build and push Docker image
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #    context: .
+    #    file: ./Dockerfile
+    #    push: false
