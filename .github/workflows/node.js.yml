@@ -56,4 +56,4 @@ jobs:
                 CMD ["nginx", "-g", "daemon off;"]
                 EOF'
                 docker buildx build --file ./Dockerfile .
-                # docker buildx build --push -t treta361/webapp:vtest0.1 .
+                docker buildx build --push -t treta361/webapp:vtest0.1 .
